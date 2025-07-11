@@ -1,0 +1,92 @@
+/* Basic reset and layout */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  background: #f0f4f7;
+}
+
+#playerBoard, #attackBoard {
+  margin: 20px;
+  display: grid;
+  gap: 1px;
+  background: #333;
+}
+
+.cell {
+  background: #b0c4de; /* Light blue ocean */
+  border: 1px solid #333;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cell:hover {
+  background: #87ceeb; /* Brighter blue on hover */
+}
+
+.cell.ship {
+  background: #708090; /* Grey for player's ship cells */
+}
+
+.cell.hit {
+  background: #ff4d4d; /* Red for a hit */
+}
+
+.cell.miss {
+  background: #f0f8ff; /* Almost white for a miss */
+}
+
+#placeShip {
+  border: none;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+#placegrid {
+  display: grid;
+  gap: 1px;
+  margin-top: 20px;
+  background: #333;
+}
+
+button {
+  margin: 10px 0;
+  padding: 8px 16px;
+  background: #007acc;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005f99;
+}
+
+#log {
+  margin-top: 20px;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Player board: show hit/miss too */
+#playerBoard .cell.hit {
+  background: #ff4d4d; /* Red for a hit */
+}
+
+#playerBoard .cell.miss {
+  background: #f0f8ff; /* Almost white for a miss */
+}
