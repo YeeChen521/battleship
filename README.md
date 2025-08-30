@@ -57,12 +57,6 @@ git clone https://github.com/YeeChen521/battleship.git
 npm install
 ```
 
-### Running Tests
-
-```bash
-npm test
-```
-
 ## Technologies Used
 
 - JavaScript (ES6+)
