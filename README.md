@@ -68,4 +68,3 @@ npm test
 - JavaScript (ES6+)
 - HTML5
 - CSS3
-- Jest (Testing)
