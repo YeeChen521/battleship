@@ -88,7 +88,7 @@ function placeShipUI(board) {
     { name: "carrier", length: 5 },
     { name: "battleship", length: 4 },
     { name: "destroyer", length: 3 },
-    { name: "submarine", length: 3 }, // typo fixed: subamrine → submarine
+    { name: "submarine", length: 3 }, 
     { name: "patrol boat", length: 2 },
   ];
 
@@ -164,7 +164,6 @@ dialog.appendChild(placegrid);
 
 
 window.onload = () => {
-    // create a indentity for the human player
     const human = new Player("human");
     const computer = new Player("computer");
 

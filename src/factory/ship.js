@@ -5,7 +5,6 @@ export class Ship {
       this.hitPositions = [];
     }
 
-    // calculate the number of times that the ship being hit
     hit(coord) {
         const alreadyHit = this.hitPositions.some(
         (pos) => pos[0] === coord[0] && pos[1] === coord[1]
@@ -20,7 +19,6 @@ export class Ship {
         return this.hitPositions.some(pos => pos[0] === x && pos[1] === y);
     }
 
-    // determine whether the all the grid of the ship is being hit or not
     isSunk(){
         return this.hitPositions.length === this.length;
     }

@@ -1,4 +1,3 @@
-/* Basic reset and layout */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -17,7 +16,7 @@ body {
 }
 
 .cell {
-  background: #b0c4de; /* Light blue ocean */
+  background: #b0c4de; 
   border: 1px solid #333;
   box-sizing: border-box;
   cursor: pointer;
@@ -25,19 +24,19 @@ body {
 }
 
 .cell:hover {
-  background: #87ceeb; /* Brighter blue on hover */
+  background: #87ceeb; 
 }
 
 .cell.ship {
-  background: #708090; /* Grey for player's ship cells */
+  background: #708090; 
 }
 
 .cell.hit {
-  background: #ff4d4d; /* Red for a hit */
+  background: #ff4d4d;
 }
 
 .cell.miss {
-  background: #f0f8ff; /* Almost white for a miss */
+  background: #f0f8ff; 
 }
 
 #placeShip {
@@ -82,11 +81,10 @@ p {
   font-weight: bold;
 }
 
-/* Player board: show hit/miss too */
 #playerBoard .cell.hit {
-  background: #ff4d4d; /* Red for a hit */
+  background: #ff4d4d; 
 }
 
 #playerBoard .cell.miss {
-  background: #f0f8ff; /* Almost white for a miss */
+  background: #f0f8ff; 
 }

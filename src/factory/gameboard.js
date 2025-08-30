@@ -22,39 +22,33 @@ export class Gameboard{
         }
     }
 
-    // determine whether the ship is being placed succesfully
     placeShip(ship, startCoord, isVertical) {
     if (!this.canPlaceShip(ship, startCoord, isVertical)) return false;
 
     let shipLength = ship.length;
-    ship.position = []; // clear old position
+    ship.position = []; 
 
     for (let i = 0; i < shipLength; i++) {
         let x = isVertical ? startCoord[0] + i : startCoord[0];
         let y = isVertical ? startCoord[1] : startCoord[1] + i;
 
         this.board[x][y] = ship;
-        ship.position.push([x, y]); // <<< THIS IS CRUCIAL
+        ship.position.push([x, y]);
     }
     console.log("Ship positions:", ship.position);
-    this.ships.push(ship); // <<< Also required
+    this.ships.push(ship); 
     return true;
     }
-
-
-    // Replace the canPlaceShip method in your gameboard.js with this corrected version:
 
     canPlaceShip(ship, startCoord, isVertical) {
         const [startX, startY] = startCoord;
         
-        // Check if starting position is within bounds
         if (startX < 0 || startX >= SIZE || startY < 0 || startY >= SIZE) {
             return false;
         }
 
         const shipLength = ship.length;
 
-        // Check if ship would go out of bounds
         if (isVertical) {
             if (startX + shipLength > SIZE) {
                 return false;
@@ -65,7 +59,6 @@ export class Gameboard{
             }
         }
 
-        // First, check if any of the ship's own positions are occupied
         for (let i = 0; i < shipLength; i++) {
             const checkX = isVertical ? startX + i : startX;
             const checkY = isVertical ? startY : startY + i;
@@ -75,23 +68,20 @@ export class Gameboard{
             }
         }
 
-        // Then check all surrounding cells (including diagonals) for each ship segment
         for (let i = 0; i < shipLength; i++) {
             const shipX = isVertical ? startX + i : startX;
             const shipY = isVertical ? startY : startY + i;
             
-            // Check all 8 surrounding cells for this ship segment
             for (let dx = -1; dx <= 1; dx++) {
                 for (let dy = -1; dy <= 1; dy++) {
-                    if (dx === 0 && dy === 0) continue; // Skip the ship's own position
+                    if (dx === 0 && dy === 0) continue; 
                     
                     const adjX = shipX + dx;
                     const adjY = shipY + dy;
                     
-                    // Check if adjacent position is within bounds
                     if (adjX >= 0 && adjX < SIZE && adjY >= 0 && adjY < SIZE) {
                         if (this.board[adjX][adjY] !== null) {
-                            return false; // Another ship is adjacent
+                            return false; 
                         }
                     }
                 }
@@ -102,7 +92,7 @@ export class Gameboard{
     }
 
     randomlyPlaceShips() {
-        this.ships = []; // RESET before placing
+        this.ships = []; 
 
         const ships = [
             new Ship(5),
@@ -114,12 +104,12 @@ export class Gameboard{
 
         let placed = 0;
         let attempts = 0;
-        const maxAttempts = 1000; // Prevent infinite loops
+        const maxAttempts = 1000; 
 
         while (placed < ships.length && attempts < maxAttempts) {
             let row = Math.floor(Math.random() * SIZE);
             let col = Math.floor(Math.random() * SIZE);
-            let isVertical = Math.random() < 0.5; // Simplified random boolean
+            let isVertical = Math.random() < 0.5; 
 
             console.log(`Attempting to place ship ${placed + 1} at (${row}, ${col}) ${isVertical ? 'vertically' : 'horizontally'}`);
 
@@ -144,7 +134,6 @@ export class Gameboard{
             console.log(`Successfully placed all ${ships.length} ships in ${attempts} attempts!`);
         }
 
-        // ✅ CORRECT WAY to show all ships:
         console.log("All ships on COMPUTER board:");
         this.ships.forEach((s, idx) => {
         console.log(`Ship ${idx + 1} positions:`, s.position);
@@ -185,7 +174,7 @@ export class Gameboard{
         
         if(this.ships.length === 0){
             console.log("No ships found!");
-            return false; // No ships means game hasn't started properly
+            return false; 
         }
         
         for(let i = 0; i < this.ships.length; i++){
