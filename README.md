@@ -40,11 +40,6 @@ A browser-based implementation of the classic Battleship board game where you pl
 
 ## Development
 
-### Prerequisites
-
-- Node.js
-- npm
-
 ### Installation
 
 1. Clone the repository:
